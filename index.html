@@ -168,7 +168,7 @@
     <h2>🔑 Clé API Gemini requise</h2>
     <p>Pour activer l'assistant IA ITSM, entrez votre clé API Google Gemini gratuite.<br>
     Elle reste stockée localement dans votre navigateur.</p>
-    <input type="password" id="apiKeyInput" placeholder="AIza..." autocomplete="off">
+    <input type="password" id="apiKeyInput" placeholder="Collez votre cle API Gemini ici..." autocomplete="off">
     <button class="modal-btn" onclick="saveApiKey()">Activer l'assistant IA →</button>
     <p class="modal-note">Obtenez une clé gratuite sur <a href="https://aistudio.google.com" target="_blank">aistudio.google.com</a> (aucune carte bancaire)</p>
   </div>
@@ -315,8 +315,8 @@ if (API_KEY) {
 
 function saveApiKey() {
   const key = document.getElementById('apiKeyInput').value.trim();
-  if (!key.startsWith('AIza')) {
-    alert('Clé invalide — elle doit commencer par "AIza..."');
+  if (key.length < 10) {
+    alert('Clé trop courte — vérifiez votre clé API.');
     return;
   }
   API_KEY = key;
